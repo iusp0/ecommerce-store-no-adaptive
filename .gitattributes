@@ -1,5 +1,1 @@
-# Указание языков программирования
-*.html linguist-language=HTML
-*.css linguist-language=CSS
-*.js linguist-language=JavaScript
 *.py linguist-language=Python
