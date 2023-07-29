@@ -1,0 +1,78 @@
+{% extends 'users/base-profile.html' %}
+{% load static %}
+
+
+{% block css-js %}
+<link rel="stylesheet" href="{% static 'vendor/css/cart.css' %}">
+{% endblock %}
+
+
+{% block content %}
+<section>
+    <div class="main_wrapper">
+        {% if cart %}
+        <h1 class="cart-title">Корзина</h1>
+        {% else %}
+        <h1 class="cart-title">Корзина пуста</h1>
+        {% endif %}
+        <div class="cart-container">
+            <div class="cart-block">
+                {% for c in baskets %}
+                <div class="product">
+                    <a href="#">
+                        <img src="{{ c.product.image_1.url }}" alt="img">
+                    </a>
+                    <div class="product-content">
+                        <div class="col-1">
+                            <a href="#"><h3>{{ c.product.name }}</h3></a>
+                            <span class="gray">{{ c.product.description|truncatechars:50 }}</span>
+                            <div class="col-1-price">
+                                <span class="product-discount gray">{{ c.sum }} ₽</span>
+                                <span class="product-price">{{ c.discount_sum|floatformat:2 }} ₽</span>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="size-block">
+                                <span class="gray">Размер</span>
+                                <span class="bold">{{ c.size }}</span>
+                            </div>
+                            <div class="size-block">
+                                <span class="gray">Количество</span>
+                                <span class="bold">{{ c.quantity }}</span>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <a href="{% url 'users:basket_remove' c.id %}"><img src="{% static 'vendor/img/svg_icons/trash.svg' %}" alt="delete"></a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="order-container">
+                <div class="row">
+                    <h2>Общая сумма</h2>
+                    <div class="order-items">
+                        <div class="item">
+                            <span>Товары</span>
+                            <span>{{ total_sum_products }} ₽</span>
+                        </div>
+                        <div class="item">
+                            <span>Доставка</span>
+                            <span>200 ₽</span>
+                        </div>
+                        <div class="item discount">
+                            <span>Цена со скидкой</span>
+                            <span>{{ discount_total_sum|floatformat:2 }} ₽</span>
+                        </div>
+                        <div class="item total-price">
+                            <span>Итого к оплате</span>
+                            <span>{{ total_sum }}</span>
+                        </div>
+                        <a class="checkout-btn" href="#">ПОДТВЕРДИТЬ</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

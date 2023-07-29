@@ -1,0 +1,66 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'vendor/css/register-login.css' %}">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{% static 'vendor/js/jquery.maskedinput.js' %}"></script>
+    <script src="{% static 'vendor/js/phone-input.js' %}"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="goback-block">
+        <a class="goback-btn" href="{% url 'main:bardStore' %}">Вернуться</a>
+    </div>
+    {% block content %}
+    {% endblock %}
+    </div>
+    <footer>
+        <div class="left-footer-block">
+            <div class="logo">
+                <a href="#">
+                    <img src="{% static 'vendor/img/svg_icons/footer-logo.png' %}" alt="logo">
+                    <h1 class="footer-h1">Bard Store</h1>
+                </a>
+            </div>
+            <div id="contacts" class="contacts">
+                <h4>Наши контакты</h4>
+                <p>+996 (999) 34-45-34</p>
+                <p>Московская 34 / Ибраимова</p>
+                <p>example@gmail.com</p>
+            </div>
+        </div>
+        <div class="rigth-footer-block">
+            <div class="for-buyers">
+                <h5>КАТАЛОГ</h5>
+                <a href="#">НОВИНКИ</a>
+                <a href="#">ЖЕНСКАЯ ОДЕЖДА</a>
+                <a href="#">МУЖСКАЯ ОДЕЖДА</a>
+                <a href="#">ДЕТСКИЕ</a>
+                <a href="#">СКИДКИ</a>
+            </div>
+            <div class="for-buyers">
+                <h5>ПОКУПАТЕЛЯМ</h5>
+                <a href="#">О КОМПАНИИ</a>
+                <a href="#">ДОСТАВКА И ОПЛАТА</a>
+                <a href="#">НЕ ПОЛУЧЕН ТОВАР</a>
+                <a href="#">КОНТАКТЫ</a>
+                <a href="#">ТАБЛИЦА РАЗМЕРОВ</a>
+            </div>
+            <div class="socials">
+                <h5>СОЦИАЛЬНЫЕ СЕТИ</h5>
+                <div class="social-items">
+                    <a href="#"><img src="{% static 'vendor/img/svg_icons/telegram.png' %}" alt="facebook"></a>
+                    <a href="#"><img src="{% static 'vendor/img/svg_icons/instagram.png' %}" alt="instagram"></a>
+                    <a href="#"><img src="{% static 'vendor/img/svg_icons/tiktok.png' %}" alt="tiktok"></a>
+                    <a href="#"><img src="{% static 'vendor/img/svg_icons/whatsapp.png' %}" alt="whatsapp"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

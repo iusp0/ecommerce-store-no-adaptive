@@ -1,0 +1,33 @@
+{% extends 'users/base-authentification.html' %}
+
+{% block content %}
+<div class="register-block">
+    <div class="form-block">
+        <h1>Регистрация</h1>
+        {% if form.errors %}
+            <div class="alert alert-warning alert-dismissible fade show" role="alert"
+            style="margin-top: 50px;">
+                {{ form.errors }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        {% endif %}
+        <form class="form" action="" method="post">
+            {% csrf_token %}
+            {{ form.username }}
+            <div class="phone-email-container">
+                {{ form.phone_number }}
+                {{ form.email }}
+            </div>
+            {{ form.password1 }}
+            {{ form.password2 }}
+            <div class="agreement">
+                {{ form.checkbox }}
+                <label for="{{ form.checkbox.id_for_label }}">Я принимаю <a href="#">пользовательское соглашение</a> и даю согласие на обработку персональных данных</label>
+            </div>
+            <button class="form-btn" type="submit">Зарегистрироваться</button>
+            <p class="form-link">Уже есть аккаунт? <a href="{% url 'users:login' %}">Войти</a></p>
+        </form>
+    </div>
+{% endblock %}

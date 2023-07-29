@@ -1,0 +1,16 @@
+{% extends 'users/base-authentification.html' %}
+
+{% block content %}
+<div class="register-block">
+    <div class="form-block">
+        <h1>Вход</h1>
+        <form class="form" action="{% url 'users:login' %}" method="POST">
+            {% csrf_token %}
+            {{ form.username }}
+            {{ form.password }}
+            <button class="form-btn" type="submit">Войти</button>
+            <p class="form-link">Нужен аккаунт? <a href="{% url 'users:register' %}">Зарегистрироваться</a></p>
+        </form>
+    </div>
+</div>
+{% endblock %}

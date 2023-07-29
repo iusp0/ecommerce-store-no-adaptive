@@ -1,0 +1,124 @@
+{% extends 'users/base-profile.html' %}
+{% load static %}
+
+{% block css-js %}
+<link rel="stylesheet" href="{% static 'vendor/css/product.css' %}">
+
+<script src="{% static 'vendor/js/carousel.js' %}" defer></script>
+{% endblock %}
+
+{% block content %}
+<section class="path-of-product">
+    <div class="path">
+        <a href="#">Каталог</a>
+        <a href="#">/ Мужчиина</a>
+        <a href="#">/ Брюки</a>
+    </div>
+</section>
+<section class="section">
+    <div class="main_wrapper">
+        <div class="img_container">
+            <div class="image_nav">
+                <span>
+                    <img class="dot" onclick="currentSlide(1)" src="{{ product.image_1.url }}" alt="">
+                </span>
+                <span>
+                    <img class="dot" onclick="currentSlide(2)" src="{{ product.image_1.url }}" alt="">
+                </span>
+                <span>
+                    <img class="dot" onclick="currentSlide(3)" src="{{ product.image_1.url }}" alt="">
+                </span>
+            </div>
+            <div class="product_image">
+                <div class="slideshow-container">
+                    <!-- Full-width images with number and caption text -->
+                    <div class="mySlides fade">
+                      <img src="{{ product.image_1.url }}" style="width:100%">
+                    </div>
+                    <div class="mySlides fade">
+                      <img src="{{ product.image_1.url }}" style="width:100%">
+                    </div>
+                    <div class="mySlides fade">
+                      <img src="{{ product.image_1.url }}" style="width:100%">
+                    </div>
+                    <!-- Next and previous buttons -->
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                </div>
+            </div>
+        </div>
+        <div class="product_content">
+            <div class="title_container">
+                <span class="gray">Nike</span>
+                <h1>{{ product.name }}</h1>
+                {% if product.discount %}
+                <span class="discount_price">-{{ product.discount|floatformat:0 }}%</span>
+                {% endif %}
+                <span class="price">{{ product.price }}</span>
+            </div>
+            <div class="inner_content">
+                <form method="post" action="{% url 'users:basket_add' product.id %}">
+                    {% csrf_token %}
+            
+                    <div class="col">
+                        <span class="gray">Размер</span>
+                        <div class="size_container">
+                            {% for size, label in form.size.field.choices %}
+                                <label class="btn-size">
+                                    <input type="radio" name="{{ form.size.name }}" value="{{ size }}" {% if form.size.value == size %}checked{% endif %}>
+                                    {{ label }}
+                                </label>
+                            {% endfor %}
+                        </div>
+                    </div>
+            
+                    <div class="col">
+                        <span class="gray">Количество</span>
+                        <div class="number">
+                            <button class="sign minus" type="button" onclick="this.nextElementSibling.stepDown(); this.nextElementSibling.onchange();">-</button>
+                            {{ form.quantity }}
+                            <button class="sign plus" type="button" onclick="this.previousElementSibling.stepUp(); this.previousElementSibling.onchange();">+</button>
+                        </div>
+                    </div>
+            
+                    <div class="col">
+                        <button type="submit" class="add-button">Добавить в корзину</button>
+                    </div>
+                </form>
+                <div class="col">
+                    <h3>Описание</h3>
+                    <p class="gray">{{ product.description }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+
+{% block script %}
+<script>
+        const labels = document.querySelectorAll('.btn-size');
+    
+        labels.forEach(label => {
+            label.addEventListener('click', (event) => {
+                const selectedInput = document.querySelector('.btn-size input:checked');
+    
+                if (selectedInput) {
+                    // Снимаем выбор с предыдущего input, если он был выбран
+                    selectedInput.checked = false;
+                    // Возвращаем фон и цвет текста предыдущего label в исходное состояние
+                    selectedInput.parentElement.style.backgroundColor = '';
+                    selectedInput.parentElement.style.color = '';
+                }
+    
+                // При клике на label, устанавливаем выбор для соответствующего input
+                const input = label.querySelector('input');
+                input.checked = true;
+                // Устанавливаем фон и цвет текста для выбранного label
+                label.style.backgroundColor = 'black';
+                label.style.color = 'white';
+            });
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends 'users/base-profile.html' %}
+{% load static %}
+
+{% block css-js %}
+<link rel="stylesheet" href="{% static 'vendor/css/profile.css' %}">
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="{% static 'vendor/js/jquery.maskedinput.js' %}"></script>
+<script src="{% static 'vendor/js/phone-input.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+<section>
+    <div class="main_wrapper">
+        <div class="row-container">
+            <div class="row">
+                <h2>Добро пожаловать Пользователь!</h2>
+                <div class="nav_menu">
+                    <a class="nav_item active" href="#"><img src="{% static 'vendor/img/svg_icons/user.svg' %}" alt="img"><span>Персональные данные</span></a>
+                    <a class="nav_item" href="#"><img src="{% static 'vendor/img/svg_icons/package.svg' %}" alt="img"><span>Покупки</span></a>
+                    <a class="nav_item" href="#"><img src="{% static 'vendor/img/svg_icons/heart.svg' %}" alt="img"><span>Избранные</span></a>
+                    <a class="nav_item" href="#"><img src="{% static 'vendor/img/svg_icons/lock.svg' %}" alt="img"><span>Изменить пароль</span></a>
+                </div>
+            </div>
+        </div>
+        <div class="nav_content">
+            <h1>Персональные данные</h1>
+            <form class="form" action="{% url 'users:user_profile' %}" method="post">
+                {% csrf_token %}
+                <h5>ИМЯ ПОЛЬЗОВАТЕЛЯ</h5>
+                {{ form.username }}
+                <div class="phone-email-container">
+                    {{ form.phone_number }}
+                    {{ form.email }}                </div>
+                <h5>ДАТА РОЖДЕНИЯ (необязательно)</h5>
+                {{ form.date_of_birth }}
+                <div class="gender-container">
+                    <h5>ПОЛ (необязательно)</h5>
+                    <div class="gender-container">
+                        <div class="gender-items">
+                            {% for radio in form.sex %}
+                            <div class="form_radio">
+                                {{ radio.tag }}
+                                <label class="gender" for="{{ radio.id_for_label }}">{{ radio.choice_label }}</label>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <button class="form-btn" type="submit">Сохранить изменения</button>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock %}

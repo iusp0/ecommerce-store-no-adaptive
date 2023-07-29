@@ -1,0 +1,283 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'vendor/css/style.css' %}">
+
+    <script src="{% static 'vendor/js/carousel.js' %}" defer></script>
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <div class="header_wrapper">
+            <nav class="navigation">
+                <ul class="links">
+                    <a href="{% url 'main:products' %}">Каталог</a>
+                    <a href="#about-us">О нас</a>
+                </ul>
+                <div class="logo">
+                    <a href="#">
+                        <img src="{% static 'vendor/img/svg_icons/logo.png' %}" alt="logo">
+                        <h1>Bard Store</h1>
+                    </a>
+                </div>
+                <div class="profile_items">
+                    <a href="{% url 'users:user_profile' %}">
+                        <img src="{% static 'vendor/img/svg_icons/user.svg' %}" alt="user_icon">
+                    </a>
+                    <a href="{% url 'users:cart' %}">
+                        <img src="{% static 'vendor/img/svg_icons/shopping-cart.svg' %}" alt="user_icon">
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="title_wrapper">
+            <div class="title">
+                <div class="title-text">
+                    <h1>
+                        Одежда, которая заставляет вас чувствовать себя уверенно
+                    </h1>
+                </div>
+                <a id="about-us" class="start-btn" href="#start">
+                    Начать покупки
+                </a>
+            </div>
+        </div>
+        <div class="about-us">
+            <div class="aboutus-block">
+                <h2 class="h2-title">О нас</h2>
+                <div class="aboutus-text">
+                    Мы предлагаем широкий выбор одежды для мужчин, женщин и детей. У нас есть все, что вам нужно, чтобы выглядеть и чувствовать себя уверенно, независимо от вашего стиля или бюджета. Мы верим, что одежда должна быть не только стильной, но и удобной. Мы предлагаем только одежду из высококачественных материалов, которая будет хорошо сидеть на вас и будет комфортной в носке.
+                </div>
+            </div>
+        </div>
+        <div class="service">
+            <h2 class="h2-title">Наш сервис предоставляет</h2>
+            <div class="slideshow-container">
+
+                <!-- Full-width images with number and caption text -->
+                <div class="mySlides fade">
+                  <div class="numbertext">1 / 3</div>
+                  <img src="{% static 'vendor/img/slider_images/slide-1.jpg' %}" style="width:100%">
+                  <div class="text">Высокое качество</div>
+                </div>
+              
+                <div class="mySlides fade">
+                  <div class="numbertext">2 / 3</div>
+                  <img src="{% static 'vendor/img/slider_images/slide-2.jpg' %}" style="width:100%">
+                  <div class="text">Широкий выбор одежды</div>
+                </div>
+              
+                <div class="mySlides fade">
+                  <div class="numbertext">3 / 3</div>
+                  <img src="{% static 'vendor/img/slider_images/slide-3.jpg' %}" style="width:100%">
+                  <div class="text">Доступные цены</div>
+                </div>
+              
+                <!-- Next and previous buttons -->
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+            <br>
+              
+              <!-- The dots/circles -->
+            <div style="text-align:center">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+            </div>
+        </div>
+        <div class="goods">
+            <h2 id="start" class="h2-title">Магазин</h2>
+            <div class="goods-block">
+                <div class="product-card">
+                    <a href="#">
+                        <img src="{% static 'vendor/img/product_iamges/1.jfif' %}" alt="img">
+                    </a>
+                    <div class="product-content">
+                        <h3 class="product-name">Название</h3>
+                        <div class="price-block">
+                            <span class="price">10000 ₽</span>
+                            <span class="discount-price">10000 ₽</span>
+                        </div>
+                        <a href="#" class="card-btn">В корзину</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <a href="#">
+                        <img src="{% static 'vendor/img/product_iamges/2.jfif' %}" alt="img">
+                    </a>
+                    <div class="product-content">
+                        <h3 class="product-name">Название</h3>
+                        <div class="price-block">
+                            <span class="price">10000 ₽</span>
+                            <span class="discount-price">10000 ₽</span>
+                        </div>
+                        <a href="#" class="card-btn">В корзину</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <a href="#">
+                        <img src="{% static 'vendor/img/product_iamges/3.jfif' %}" alt="img">
+                    </a>
+                    <div class="product-content">
+                        <h3 class="product-name">Название</h3>
+                        <div class="price-block">
+                            <span class="price">10000 ₽</span>
+                            <span class="discount-price">10000 ₽</span>
+                        </div>
+                        <a href="#" class="card-btn">В корзину</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <a href="#">
+                        <img src="{% static 'vendor/img/product_iamges/4.jfif' %}" alt="img">
+                    </a>
+                    <div class="product-content">
+                        <h3 class="product-name">Название</h3>
+                        <div class="price-block">
+                            <span class="price">10000 ₽</span>
+                            <span class="discount-price">10000 ₽</span>
+                        </div>
+                        <a href="#" class="card-btn">В корзину</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <a href="#">
+                        <img src="{% static 'vendor/img/product_iamges/5.jfif' %}" alt="img">
+                    </a>
+                    <div class="product-content">
+                        <h3 class="product-name">Название</h3>
+                        <div class="price-block">
+                            <span class="price">10000 ₽</span>
+                            <span class="discount-price">10000 ₽</span>
+                        </div>
+                        <a href="#" class="card-btn">В корзину</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <a href="#">
+                        <img src="{% static 'vendor/img/product_iamges/6.jfif' %}" alt="img">
+                    </a>
+                    <div class="product-content">
+                        <h3 class="product-name">Название</h3>
+                        <div class="price-block">
+                            <span class="price">10000 ₽</span>
+                            <span class="discount-price">10000 ₽</span>
+                        </div>
+                        <a href="#" class="card-btn">В корзину</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <a href="#">
+                        <img src="{% static 'vendor/img/product_iamges/7.jfif' %}" alt="img">
+                    </a>
+                    <div class="product-content">
+                        <h3 class="product-name">Название</h3>
+                        <div class="price-block">
+                            <span class="price">10000 ₽</span>
+                            <span class="discount-price">10000 ₽</span>
+                        </div>
+                        <a href="#" class="card-btn">В корзину</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <a href="#">
+                        <img src="{% static 'vendor/img/product_iamges/8.jfif' %}" alt="img">
+                    </a>
+                    <div class="product-content">
+                        <h3 class="product-name">Название</h3>
+                        <div class="price-block">
+                            <span class="price">10000 ₽</span>
+                            <span class="discount-price">10000 ₽</span>
+                        </div>
+                        <a href="#" class="card-btn">В корзину</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="question_wrapper">
+            <div class="question-block">
+                <div class="left-question-block">
+                    <h2>Есть вопросы?</h2>
+                    <p>Если у вас есть какие-либо вопросы, пожалуйста, не стесняйтесь обращаться к нам.</p>
+                    <p>Что бы задать вопрос вы должны заполнить форму и отправить.</p>
+                    <p>Мы постараемся ответить на ваш вопрос как можно быстрее.</p>
+                    <p>Максимальное время ожидания 24 часа. </p>
+                    <div class="also">
+                        <h3>Также вы можете связятся с нами ниже</h3>
+                        <a href="#contacts" class="contact-btn">Связяться с нами</a>
+                    </div>
+                </div>
+                <div class="right-question-block">
+                    <h2>Написать нам</h2>
+                    <form class="question-form" action="{% url 'main:bardStore' %}" method="POST">
+                        {% csrf_token %}
+                        {{ form.name }}
+                        {{ form.email }}
+                        {{ form.Text }}
+                        <button type="submit">Отправить</button>
+                    </form>
+                    {% if form.errors %}
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert"
+                        style="margin-top: 50px;">
+                            {{ form.errors }}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="left-footer-block">
+            <div class="logo">
+                <a href="#">
+                    <img src="{% static 'vendor/img/svg_icons/footer-logo.png' %}" alt="logo">
+                    <h1 class="footer-h1">Bard Store</h1>
+                </a>
+            </div>
+            <div id="contacts" class="contacts">
+                <h4>Наши контакты</h4>
+                <p>+996 (999) 34-45-34</p>
+                <p>Московская 34 / Ибраимова</p>
+                <p>example@gmail.com</p>
+            </div>
+        </div>
+        <div class="rigth-footer-block">
+            <div class="for-buyers">
+                <h5>КАТАЛОГ</h5>
+                <a href="#">НОВИНКИ</a>
+                <a href="#">ЖЕНСКАЯ ОДЕЖДА</a>
+                <a href="#">МУЖСКАЯ ОДЕЖДА</a>
+                <a href="#">ДЕТСКИЕ</a>
+                <a href="#">СКИДКИ</a>
+            </div>
+            <div class="for-buyers">
+                <h5>ПОКУПАТЕЛЯМ</h5>
+                <a href="#">О КОМПАНИИ</a>
+                <a href="#">ДОСТАВКА И ОПЛАТА</a>
+                <a href="#">НЕ ПОЛУЧЕН ТОВАР</a>
+                <a href="#">КОНТАКТЫ</a>
+                <a href="#">ТАБЛИЦА РАЗМЕРОВ</a>
+            </div>
+            <div class="socials">
+                <h5>СОЦИАЛЬНЫЕ СЕТИ</h5>
+                <div class="social-items">
+                    <a href="#"><img src="{% static 'vendor/img/svg_icons/telegram.png' %}" alt="facebook"></a>
+                    <a href="#"><img src="{% static 'vendor/img/svg_icons/instagram.png' %}" alt="instagram"></a>
+                    <a href="#"><img src="{% static 'vendor/img/svg_icons/tiktok.png' %}" alt="tiktok"></a>
+                    <a href="#"><img src="{% static 'vendor/img/svg_icons/whatsapp.png' %}" alt="whatsapp"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

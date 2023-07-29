@@ -1,0 +1,314 @@
+.gray {
+    color: gray;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Work Sans', sans-serif;
+    scroll-behavior: smooth;
+}
+
+header {
+        width: 100%;
+    height: 80px;
+    z-index: 1000;
+}
+
+.header_wrapper {
+    display: flex;
+    align-items: center;
+    max-width: 95%;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0.75rem 1.5rem;
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.links {
+    display: flex;
+    align-items: center;
+}
+
+.links a {
+    position: relative;
+    padding: .5rem 1rem;
+    text-decoration: none;
+    color: black;
+    transition: .2s;
+}
+
+.links a::before {
+    content: "";
+    position: absolute;
+    top: 85%;
+    left: 16%;
+    width: 70%;
+    height: 3px;
+    background-color: #797979;
+    transition: .2s;
+    opacity: 0;
+}
+
+.links a:hover:before{
+    opacity: 1;
+}
+
+.logo a {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    text-decoration: none;
+    color: #343434;
+    font-weight: 700;
+    
+}
+
+.logo img {
+    height: 32px;
+    width: 32px;
+}
+
+.profile_items {
+    display: flex;
+}
+
+.profile_items a{
+    display: flex;
+    height: 100%;
+    align-items: center;
+    padding: 0 5px;
+
+}
+
+
+/* Main */
+
+section {
+    background-color: #F5F5F5;
+    position: relative;
+    padding: 5rem 0;
+}
+
+.main_wrapper {
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.cart-title {
+    padding: 5px;
+    margin-bottom: 20px;
+    font-size: 3em;
+    color: rgb(93, 93, 93);
+}
+
+.cart-container {
+    display: flex;
+}
+
+.cart-block {
+    width: 100%;
+    background-color: #fff;
+    margin: 5px;
+    padding: 30px;
+}
+
+
+.row {
+    padding: 30px;
+    background-color: #fff;
+}
+
+.checkout-btn {
+    text-decoration: none;
+    width: 100%;
+    margin-top: 30px;
+    padding: 14px 28px;
+    text-align: center;
+    background-color: #000000;
+    color: #fff;
+    transition: .1s;
+    font-weight: bold;
+}
+
+.checkout-btn:hover {
+    background-color: rgb(105, 148, 84);
+}
+
+
+.order-container {
+    padding: 5px;
+    max-width: 416px;
+    width: 100%;
+    color: rgb(93, 93, 93);
+
+}
+
+.order-items {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+
+}
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.discount {
+    color: #DC3545;
+}
+
+.total-price {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+
+.product {
+    box-sizing: content-box;
+    height: 100px;
+    display: flex;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1.5px solid rgba(128, 128, 128, 0.234);
+}
+
+.product:last-child {
+    border-bottom: none;
+    padding: 0;
+    margin: 0;
+}
+
+.product a {
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+.product img {
+    height: 100%;
+}
+
+.product-content {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.col-1 {
+    display: flex;
+    flex-direction: column;
+    cursor: default;
+
+}
+
+.col-1 a {
+    color: #000;
+}
+
+.col-1 h3 {
+    font-weight: normal;
+}
+
+
+.product-discount {
+    text-decoration: line-through;
+}
+
+.product-price {
+    color: #DC3545;
+}
+
+.col-2 {
+    display: flex;
+    cursor: default;
+}
+
+.size-block {
+    margin-right: 15px;
+}
+
+.col-3 img {
+    width: 40px;
+    height: 40px;
+    transition: .2s;
+}
+
+.col-3 img:hover {
+    transform: scale(1.15);
+}
+
+
+/* Footer */
+
+footer {
+    position: relative;
+    height: 300px;
+    background-color: #000;
+    display: flex;
+    padding: 30px 100px;
+
+}
+
+.left-footer-block {
+    height: 100%;
+    width: 30%;
+    color: #fff;
+    letter-spacing: .6px;
+}
+
+.contacts {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 130px;
+}
+
+.rigth-footer-block {
+    height: 100%;
+    width: 70%;
+    display: flex;
+    justify-content: space-around;
+    color: #fff;
+}
+
+.footer-h1 {
+    color: #fff;
+}
+
+.for-buyers {
+    display: flex;
+    flex-direction: column;
+}
+
+.for-buyers a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.for-buyers a:hover {
+    text-decoration: underline;
+}
+
+.social-items a img {
+    width: 32px;
+    height: 32px;
+}

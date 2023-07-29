@@ -1,0 +1,186 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Work Sans', sans-serif;
+    scroll-behavior: smooth;
+}
+
+.goback-block {
+    height: 60px;
+    padding: 10px;
+    display: flex;
+}
+
+.goback-btn {
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #000;
+    border: 1.8px solid #000;
+    border-radius: 8px;
+    transition: .2s;
+    font-weight: bold;
+}
+
+.goback-btn:hover {
+    background-color: #00000037;
+}
+
+.register-block {
+    max-width: 1000px;
+    width: 100%;
+    height: 600px;
+    margin: 0 auto;
+    margin-top: 150px;
+    padding: 0 230px;
+    text-align: center;
+}
+
+
+.form {
+    display: flex;
+    flex-direction: column;
+    height: 420px;
+}
+ 
+.form-link {
+    margin-top: 15px;
+}
+
+.form-link a {
+    text-decoration: none;
+}
+
+.phone-email-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-input {
+    margin-top: 20px;
+    height: 50px;
+    padding: 5px 20px;
+    border: none;
+    outline: none;
+    border: 1.2px solid #c4c0c0;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+.form-input::placeholder {
+    color: #7a7a7a;
+    letter-spacing: 1px;
+}
+
+
+.input-width {
+    width: 48.5%;
+}
+
+.form-btn {
+    margin-top: 30px;
+    height: 40px;
+    background-color: #000;
+    color: #fff;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: .2s;
+}
+
+.form-btn:hover {
+    background-color: rgb(105, 148, 84);
+}
+
+.agreement {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+.checkbox {
+    width: 30px;
+    height: 30px;
+}
+
+
+.agreement p {
+    font-size: 14px;
+}
+
+/* Footer */
+
+footer {
+    position: relative;
+    height: 300px;
+    background-color: #000;
+    display: flex;
+    padding: 30px 100px;
+
+}
+
+.logo a {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    text-decoration: none;
+    color: #343434;
+    font-weight: 700;
+    
+}
+
+.logo img {
+    height: 32px;
+    width: 32px;
+}
+
+
+.left-footer-block {
+    height: 100%;
+    width: 30%;
+    color: #fff;
+    letter-spacing: .6px;
+}
+
+.contacts {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 130px;
+}
+
+.rigth-footer-block {
+    height: 100%;
+    width: 70%;
+    display: flex;
+    justify-content: space-around;
+    color: #fff;
+}
+
+.footer-h1 {
+    color: #fff;
+}
+
+.for-buyers {
+    display: flex;
+    flex-direction: column;
+}
+
+.for-buyers a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.for-buyers a:hover {
+    text-decoration: underline;
+}
+
+.social-items a img {
+    width: 32px;
+    height: 32px;
+}

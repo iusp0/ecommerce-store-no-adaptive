@@ -1,0 +1,157 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'vendor/css/products.css' %}">
+
+    <script src="{% static 'vendor/js/slider.js' %}" defer></script>
+    <script src="{% static 'vendor/js/script.js' %}" defer></script>
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <div class="header_wrapper">
+            <nav class="navigation">
+                <ul class="links">
+                    <a href="{% url 'main:bardStore' %}">Главная</a>
+                    <a href="{% url 'main:bardStore' %}#about-us">О нас</a>
+                </ul>
+                <div class="logo">
+                    <a href="#">
+                        <img src="{% static 'vendor/img/svg_icons/logo.png' %}" alt="logo">
+                        <h1>Bard Store</h1>
+                    </a>
+                </div>
+                <div class="profile_items">
+                    <a href="{% url 'users:user_profile' %}">
+                        <img src="{% static 'vendor/img/svg_icons/user.svg' %}" alt="user_icon">
+                    </a>
+                    <a href="{% url 'users:cart' %}">
+                        <img src="{% static 'vendor/img/svg_icons/shopping-cart.svg' %}" alt="user_icon">
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="main_wrapper">
+            <ul id="slides">
+                <li class="slide showing"></li>
+                <li class="slide"></li>
+                <li class="slide"></li>
+                <li class="slide"></li>
+                <li class="slide"></li>
+            </ul>
+            <div class="container">
+                <nav class="nav">
+                    <form class="search-form" action="{% url 'main:products' %}" method="get">
+                        <input name="s" placeholder="Искать..." type="search" value="{% if search_query %}{{ search_query }}{% endif %}">
+                        <button type="submit">Поиск</button>
+                    </form>
+                </nav>
+                <div class="block-content">
+                    <div class="row">
+                        <div class="category">
+                            <h4 class="h4">КАТЕГОРИИ</h4>
+
+                            <div class="category-items">
+                                <ul>
+                                    <a  class="cat-item" href="{% url 'main:products' %}">Все категории</a>
+                                    {% for category in categories %}
+                                    <a  class="cat-item" href="{% url 'main:category' category.id %}">{{ category }}</a>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="goods">
+                        <div class="filter-block">
+                            <button onclick="myFunction()" class="dropbtn">
+                            </button>
+                            <div id="myDropdown" class="dropdown-content">
+                                <a href="#">Сортировать по названию</a>
+                                <a href="#">Сортировать по цене</a>
+                            </div>
+                        </div>
+                        <div class="goods-block">
+                            {% for product in products %}
+                            <div class="product-card">
+                                <a href="{% url 'main:product' product.id %}">
+                                    <img src="{{ product.image_1.url }}" alt="img">
+                                </a>
+                                <div class="product-content">
+                                    <h3 class="product-name">{{ product.name }}</h3>
+                                    <div class="price-block">
+                                        <span>{{ product.discount_price }} ₽</span>
+                                        {% if product.discount %}
+                                        <span class="price">-{{ product.discount|floatformat:0 }}%</span>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                            <nav class="pagination">
+                                <a href="{% if products.has_previous %}{% if category_id %}{% url 'main:category_paginator' category_id=category_id page_number=products.previous_page_number %}{% else %}{% url 'main:paginator' page_number=products.previous_page_number %}{% endif %}{% else %}#{% endif %}" class="{% if not products.has_previous %}disabled{% endif %}">«</a>
+                                {% for page in products.paginator.page_range %}
+                                    {% if category_id %}
+                                        <a href="{% url 'main:category_paginator' category_id=category_id page_number=page %}" class="{% if page == current_page %}active{% endif %}">{{ page }}</a>
+                                    {% else %}
+                                        <a href="{% url 'main:paginator' page_number=page %}" class="{% if page == current_page %}active{% endif %}">{{ page }}</a>
+                                    {% endif %}
+                                {% endfor %}
+                                <a href="{% if products.has_next %}{% if category_id %}{% url 'main:category_paginator' category_id=category_id page_number=products.next_page_number %}{% else %}{% url 'main:paginator' page_number=products.next_page_number %}{% endif %}{% else %}#{% endif %}" class="{% if not products.has_next %}disabled{% endif %}">»</a>
+                            </nav>                     
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="left-footer-block">
+            <div class="logo">
+                <a href="#">
+                    <img src="{% static 'vendor/img/svg_icons/footer-logo.png' %}" alt="logo">
+                    <h1 class="footer-h1">Bard Store</h1>
+                </a>
+            </div>
+            <div id="contacts" class="contacts">
+                <h4>Наши контакты</h4>
+                <p>+996 (999) 34-45-34</p>
+                <p>Московская 34 / Ибраимова</p>
+                <p>example@gmail.com</p>
+            </div>
+        </div>
+        <div class="rigth-footer-block">
+            <div class="for-buyers">
+                <h5>КАТАЛОГ</h5>
+                <a href="#">НОВИНКИ</a>
+                <a href="#">ЖЕНСКАЯ ОДЕЖДА</a>
+                <a href="#">МУЖСКАЯ ОДЕЖДА</a>
+                <a href="#">ДЕТСКИЕ</a>
+                <a href="#">СКИДКИ</a>
+            </div>
+            <div class="for-buyers">
+                <h5>ПОКУПАТЕЛЯМ</h5>
+                <a href="#">О КОМПАНИИ</a>
+                <a href="#">ДОСТАВКА И ОПЛАТА</a>
+                <a href="#">НЕ ПОЛУЧЕН ТОВАР</a>
+                <a href="#">КОНТАКТЫ</a>
+                <a href="#">ТАБЛИЦА РАЗМЕРОВ</a>
+            </div>
+            <div class="socials">
+                <h5>СОЦИАЛЬНЫЕ СЕТИ</h5>
+                <div class="social-items">
+                    <a href="#"><img src="{% static 'vendor/img/svg_icons/telegram.png' %}" alt="facebook"></a>
+                    <a href="#"><img src="{% static 'vendor/img/svg_icons/instagram.png' %}" alt="instagram"></a>
+                    <a href="#"><img src="{% static 'vendor/img/svg_icons/tiktok.png' %}" alt="tiktok"></a>
+                    <a href="#"><img src="{% static 'vendor/img/svg_icons/whatsapp.png' %}" alt="whatsapp"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
