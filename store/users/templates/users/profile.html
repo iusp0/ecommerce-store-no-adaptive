@@ -17,9 +17,9 @@
                 <h2>Добро пожаловать Пользователь!</h2>
                 <div class="nav_menu">
                     <a class="nav_item active" href="#"><img src="{% static 'vendor/img/svg_icons/user.svg' %}" alt="img"><span>Персональные данные</span></a>
-                    <a class="nav_item" href="#"><img src="{% static 'vendor/img/svg_icons/package.svg' %}" alt="img"><span>Покупки</span></a>
-                    <a class="nav_item" href="#"><img src="{% static 'vendor/img/svg_icons/heart.svg' %}" alt="img"><span>Избранные</span></a>
-                    <a class="nav_item" href="#"><img src="{% static 'vendor/img/svg_icons/lock.svg' %}" alt="img"><span>Изменить пароль</span></a>
+                    <a class="nav_item" href="{% url 'users:user_orders' %}"><img src="{% static 'vendor/img/svg_icons/package.svg' %}" alt="img"><span>Покупки</span></a>
+                    <a class="nav_item" href="{% url 'users:user_favorites' %}"><img src="{% static 'vendor/img/svg_icons/heart.svg' %}" alt="img"><span>Избранные</span></a>
+                    <a class="nav_item" href="{% url 'users:user_password' %}"><img src="{% static 'vendor/img/svg_icons/lock.svg' %}" alt="img"><span>Изменить пароль</span></a>
                 </div>
             </div>
         </div>

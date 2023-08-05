@@ -66,6 +66,21 @@ def user_profile(request):
 
 
 @login_required
+def user_orders(request):
+    return render(request, 'users/orders.html')
+
+
+@login_required
+def user_favorites(request):
+    return render(request, 'users/favorites.html')
+
+
+@login_required
+def user_password(request):
+    return render(request, 'users/change_password.html')
+
+
+@login_required
 def cart(request):
     baskets = Basket.objects.filter(user=request.user)
     total_sum_products = sum(basket.sum() for basket in baskets)

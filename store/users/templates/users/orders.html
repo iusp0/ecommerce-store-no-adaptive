@@ -1,176 +1,103 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/profile.css">
-    <script src="https://kit.fontawesome.com/08252e9706.js" crossorigin="anonymous" defer></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="../js/jquery.maskedinput.js"></script>
-    <script src="../js/phone-input.js"></script>
-    <title>Document</title>
-</head>
-<body>
-    <header>
-        <div class="header_wrapper">
-            <nav class="navigation">
-                <ul class="links">
-                    <a href="#start">Каталог</a>
-                    <a href="#adbout-us">Главная</a>
-                </ul>
-                <div class="logo">
-                    <a href="#">
-                        <img src="../img/svg_icons/logo.png" alt="logo">
-                        <h1>Bard Store</h1>
-                    </a>
+{% extends 'users/base-profile.html' %}
+{% load static %}
+
+{% block css-js %}
+<link rel="stylesheet" href="{% static 'vendor/css/profile.css' %}">
+{% endblock %}
+
+
+
+{% block content %}
+<section>
+    <div class="main_wrapper">
+        <div class="row-container">
+            <div class="row">
+                <h2>Добро пожаловать Пользователь!</h2>
+                <div class="nav_menu">
+                    <a class="nav_item" href="{% url 'users:user_profile' %}"><img src="{% static 'vendor/img/svg_icons/user.svg' %}" alt="img"><span>Персональные данные</span></a>
+                    <a class="nav_item active" href="#"><img src="{% static 'vendor/img/svg_icons/package.svg' %}" alt="img"><span>Покупки</span></a>
+                    <a class="nav_item" href="{% url 'users:user_favorites' %}"><img src="{% static 'vendor/img/svg_icons/heart.svg' %}" alt="img"><span>Избранные</span></a>
+                    <a class="nav_item" href="{% url 'users:user_password' %}"><img src="{% static 'vendor/img/svg_icons/lock.svg' %}" alt="img"><span>Изменить пароль</span></a>
                 </div>
-                <div class="profile_items">
-                    <a href="#">
-                        <img src="../img/svg_icons/user.svg" alt="user_icon">
-                    </a>
-                    <a href="#">
-                        <img src="../img/svg_icons/shopping-cart.svg" alt="user_icon">
-                    </a>
-                </div>
-            </nav>
+            </div>
         </div>
-    </header>
-    <main>
-        <section>
-            <div class="main_wrapper">
-                <div class="row-container">
-                    <div class="row">
-                        <h2>Добро пожаловать Пользователь!</h2>
-                        <div class="nav_menu">
-                            <a class="nav_item" href="#"><img src="../img/svg_icons/user.svg" alt="img"><span>Персональные данные</span></a>
-                            <a class="nav_item active" href="#"><img src="../img/svg_icons/package.svg" alt="img"><span>Покупки</span></a>
-                            <a class="nav_item" href="#"><img src="../img/svg_icons/heart.svg" alt="img"><span>Избранные</span></a>
-                            <a class="nav_item" href="#"><img src="../img/svg_icons/lock.svg" alt="img"><span>Изменить пароль</span></a>
+        <div class="nav_content">
+            <h1>Покупки</h1>
+            <div class="order_container">
+                <div class="order">
+                    <h2>Заказ №76894502</h2>
+                    <div class="order-data">
+                        <div class="order-col">
+                            <h4>Заказ</h4>
+                            <span>№76894502</span>
+                        </div>
+                        <div class="order-col">
+                            <h4>Дата оформления</h4>
+                            <span>23 Апрель 2019</span>
+                        </div>
+                        <div class="order-col">
+                            <h4>Итоговая цена</h4>
+                            <span>18 600 ₽</span>
+                        </div>
+                        <div class="order-col">
+                            <h4>Статус</h4>
+                            <span>Оплачен</span>
+                        </div>
+                        <div class="order-col col-btn" style="border: none;">
+                            <a href="#" class="order-btn">Подробнее</a>
                         </div>
                     </div>
                 </div>
-                <div class="nav_content">
-                    <h1>Покупки</h1>
-                    <div class="order_container">
-                        <div class="order">
-                            <h2>Заказ №76894502</h2>
-                            <div class="order-data">
-                                <div class="order-col">
-                                    <h4>Заказ</h4>
-                                    <span>№76894502</span>
-                                </div>
-                                <div class="order-col">
-                                    <h4>Дата оформления</h4>
-                                    <span>23 Апрель 2019</span>
-                                </div>
-                                <div class="order-col">
-                                    <h4>Итоговая цена</h4>
-                                    <span>18 600 ₽</span>
-                                </div>
-                                <div class="order-col">
-                                    <h4>Статус</h4>
-                                    <span>Оплачен</span>
-                                </div>
-                                <div class="order-col col-btn" style="border: none;">
-                                    <a href="#" class="order-btn">Подробнее</a>
-                                </div>
-                            </div>
+                <div class="order">
+                    <h2>Заказ №12494502</h2>
+                    <div class="order-data">
+                        <div class="order-col">
+                            <h4>Заказ</h4>
+                            <span>№12494502</span>
                         </div>
-                        <div class="order">
-                            <h2>Заказ №12494502</h2>
-                            <div class="order-data">
-                                <div class="order-col">
-                                    <h4>Заказ</h4>
-                                    <span>№12494502</span>
-                                </div>
-                                <div class="order-col">
-                                    <h4>Дата оформления</h4>
-                                    <span>23 Апрель 2019</span>
-                                </div>
-                                <div class="order-col">
-                                    <h4>Итоговая цена</h4>
-                                    <span>12300 ₽</span>
-                                </div>
-                                <div class="order-col">
-                                    <h4>Статус</h4>
-                                    <span>В пути</span>
-                                </div>
-                                <div class="order-col col-btn" style="border: none;">
-                                    <a href="#" class="order-btn">Подробнее</a>
-                                </div>
-                            </div>
+                        <div class="order-col">
+                            <h4>Дата оформления</h4>
+                            <span>23 Апрель 2019</span>
                         </div>
-                        <div class="order">
-                            <h2>Заказ №72134502</h2>
-                            <div class="order-data">
-                                <div class="order-col">
-                                    <h4>Заказ</h4>
-                                    <span>№72134502</span>
-                                </div>
-                                <div class="order-col">
-                                    <h4>Дата оформления</h4>
-                                    <span>23 Апрель 2019</span>
-                                </div>
-                                <div class="order-col">
-                                    <h4>Итоговая цена</h4>
-                                    <span>12000 ₽</span>
-                                </div>
-                                <div class="order-col">
-                                    <h4>Статус</h4>
-                                    <span>Доставлен</span>
-                                </div>
-                                <div class="order-col col-btn" style="border: none;">
-                                    <a href="#" class="order-btn">Подробнее</a>
-                                </div>
-                            </div>
+                        <div class="order-col">
+                            <h4>Итоговая цена</h4>
+                            <span>12300 ₽</span>
+                        </div>
+                        <div class="order-col">
+                            <h4>Статус</h4>
+                            <span>В пути</span>
+                        </div>
+                        <div class="order-col col-btn" style="border: none;">
+                            <a href="#" class="order-btn">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="order">
+                    <h2>Заказ №72134502</h2>
+                    <div class="order-data">
+                        <div class="order-col">
+                            <h4>Заказ</h4>
+                            <span>№72134502</span>
+                        </div>
+                        <div class="order-col">
+                            <h4>Дата оформления</h4>
+                            <span>23 Апрель 2019</span>
+                        </div>
+                        <div class="order-col">
+                            <h4>Итоговая цена</h4>
+                            <span>12000 ₽</span>
+                        </div>
+                        <div class="order-col">
+                            <h4>Статус</h4>
+                            <span>Доставлен</span>
+                        </div>
+                        <div class="order-col col-btn" style="border: none;">
+                            <a href="#" class="order-btn">Подробнее</a>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-    </main>
-    <footer>
-        <div class="left-footer-block">
-            <div class="logo">
-                <a href="#">
-                    <img src="../img/svg_icons/footer-logo.png" alt="logo">
-                    <h1 class="footer-h1">Bard Store</h1>
-                </a>
-            </div>
-            <div id="contacts" class="contacts">
-                <h4>Наши контакты</h4>
-                <p>+996 (999) 34-45-34</p>
-                <p>Московская 34 / Ибраимова</p>
-                <p>example@gmail.com</p>
-            </div>
         </div>
-        <div class="rigth-footer-block">
-            <div class="for-buyers">
-                <h5>КАТАЛОГ</h5>
-                <a href="#">НОВИНКИ</a>
-                <a href="#">ЖЕНСКАЯ ОДЕЖДА</a>
-                <a href="#">МУЖСКАЯ ОДЕЖДА</a>
-                <a href="#">ДЕТСКИЕ</a>
-                <a href="#">СКИДКИ</a>
-            </div>
-            <div class="for-buyers">
-                <h5>ПОКУПАТЕЛЯМ</h5>
-                <a href="#">О КОМПАНИИ</a>
-                <a href="#">ДОСТАВКА И ОПЛАТА</a>
-                <a href="#">НЕ ПОЛУЧЕН ТОВАР</a>
-                <a href="#">КОНТАКТЫ</a>
-                <a href="#">ТАБЛИЦА РАЗМЕРОВ</a>
-            </div>
-            <div class="socials">
-                <h5>СОЦИАЛЬНЫЕ СЕТИ</h5>
-                <div class="social-items">
-                    <a href="#"><img src="../img/svg_icons/telegram.png" alt="facebook"></a>
-                    <a href="#"><img src="../img/svg_icons/instagram.png" alt="instagram"></a>
-                    <a href="#"><img src="../img/svg_icons/tiktok.png" alt="tiktok"></a>
-                    <a href="#"><img src="../img/svg_icons/whatsapp.png" alt="whatsapp"></a>
-                </div>
-            </div>
-        </div>
-    </footer>
-</body>
-</html>
+    </div>
+</section>
+{% endblock %}
